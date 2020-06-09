@@ -1,0 +1,66 @@
+<html>
+<head>
+  <link rel="stylesheet" href="css.css">
+</head>
+<script>
+var x = null, y = null, z = null, textinput1 = null;
+
+function myFunction() { 
+x = document.getElementById("tambah");
+y = document.getElementById("pass1");
+z = document.getElementById("pass2");
+textinput1 = document.getElementsByClassName("textinput1");
+}
+
+
+function validasi1() { 
+var count=0;
+	for (i = 0; i < textinput1.length; i++) { 
+	if(textinput1[i].value == ""){
+		count = count + 1;
+	}
+}
+	if(count > 0){
+		alert("Fill all required field!"); 
+		return false;
+	}else{
+		if(y.value == z.value){
+			return true;
+		}else{
+			alert("Password not match"); 
+			return false;
+		}
+	}
+}
+
+
+</script>
+<body onload="myFunction()">
+	<div class="contentlogin">
+	Tambah Pengguna
+	<form name="newform" method="post" action="newuser.php" onsubmit="return validasi1()">
+	
+			<input class="text1" name="username" placeholder="ID/User Name" type="text"><br>
+			
+			<input class="text1" name="nama" placeholder="Nama Pengguna" type="text"><br>
+			
+			<input id = "pass1" class="text1" name="password" placeholder="Password" type="password"><br> 
+			 
+			<input id = "pass2" class="text1" name="password" placeholder="Ulangi Password" type="password"><br> 
+	</div>
+	<div class="contentlogin">		
+			<select name="statusid">
+				<option value=0>Admin</option>
+				<option value=1>Pengguna</option>
+			</select><br> 
+	</div>
+	<div class="contentlogin">
+			<input class="button1" type="submit" />
+			<a href="index.php"><button type="button">Back</button></a>
+	</form> 
+	</div>
+	
+	
+	
+</body>
+</html>

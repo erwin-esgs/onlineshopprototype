@@ -1,0 +1,58 @@
+<html>
+<head>
+  <link rel="stylesheet" href="css.css">
+</head>
+<script>
+var x = null, y = null, z = null, textinput1 = null;
+
+function myFunction() { 
+x = document.getElementById("tambah");
+textinput1 = document.getElementsByClassName("textinput1");
+
+}
+
+
+function validasi1() { 
+var count=0;
+	for (i = 0; i < textinput1.length; i++) { 
+	if(textinput1[i].value == ""){
+		count = count + 1;
+	}
+}
+if(count > 0){
+	alert("Fill all required field!"); 
+	return false;
+	}else{
+	return true;
+	}
+}
+
+</script>
+<body onload="myFunction()">
+	<div class="header">
+	</div>
+	<div class="toolbar">
+	<a href="index.php"><button> &nbsp Back  &nbsp </button></a><br>
+	</div>
+
+	<div class="contentlogin">
+	Tambah Barang<br>
+
+<form action="barangbaru.php" method="post" enctype="multipart/form-data" onsubmit="return validasi1()">
+    Pilih gambar (max 1mb):<br>
+    <input type="file" name="image"/><br>
+	</div>
+	<div class="contentlogin">
+	<input class="text1" type="text" name="namabarang" placeholder="Nama Barang" ><br> 
+	<input class="text1" type="text" name="deskripsi" placeholder="Deskripsi Barang" ><br> 
+	<input class="text1" type="number" name="stok" placeholder="Jumlah Barang" ><br> 
+	<input class="text1" type="number" name="berat" placeholder="Berat (Dalam Kg)" ><br> 
+	<input class="text1" type="number" name="harga" placeholder="Harga Satuan" ><br> 
+    <input type="submit" value="Submit" name="submit"/>
+	</div>
+</form>
+	
+	
+
+</body>
+</html>

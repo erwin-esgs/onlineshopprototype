@@ -1,0 +1,48 @@
+<html>
+<head>
+  <link rel="stylesheet" href="css.css">
+</head>
+<script> 
+var textinput1 = document.getElementsByClassName("textinput1");
+
+function validasi1() { 
+var pass1 = document.getElementById("pass1").value;
+var pass2 = document.getElementById("pass2").value; 
+var count=0;
+	for (i = 0; i < textinput1.length; i++) { 
+	if(textinput1[i].value == ""){
+		count = count + 1;
+	}
+}
+if(count > 0){
+	alert("Field masih ada yang kosong!"); 
+		return false;
+	}else{
+		if(pass1 === pass2){
+		//alert("Pendaftaran berhasil"); 
+			return true;
+		}else{
+			alert("Password tidak sama!"); 
+			return false;
+		}
+	}
+}
+
+</script>
+<body>
+<div class="formlogin">
+	<form name="register" method="POST" action="register.php" onsubmit="return validasi1()" >
+		<div class="contentlogin">
+			<input class="text1" name="username" placeholder="ID Pengguna" type="text"><br>
+			<input class="text1" name="nama" placeholder="Nama Pengguna" type="text"><br>
+			<input id="pass1" class="text1" name="password" placeholder="Password" type="password"><br>
+			<input id="pass2" class="text1" name="password2" placeholder="Ulangi Password" type="password"><br>
+		</div>
+		<div class="contentlogin">
+			<input type="submit" value="Register">
+	</form>
+		<a href="index.php"><button type="button"> &nbsp Back &nbsp </button></a>
+		</div>
+</div>
+</body>
+</html>
